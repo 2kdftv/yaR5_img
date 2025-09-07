@@ -1,3 +1,6 @@
+## tung tung sahur
+
+
 no_metadata = true
 # num_repeats = 8
 async_upload = true
@@ -19,8 +22,8 @@ huggingface_repo_id = ""
 huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
-learning_rate = 0.0001
-loss_type = "l2"
+learning_rate = 0.0002
+loss_type = "huber"
 lr_scheduler = "cosine"
 max_bucket_reso = 1024
 max_data_loader_n_workers = 0
@@ -31,12 +34,13 @@ min_bucket_reso = 256
 min_snr_gamma = 7
 mixed_precision = "bf16"
 network_alpha = 16
-network_dim = 16
+network_dim = 32
 network_module = "networks.lora"
 network_args = ["conv_dim=4", "conv_alpha=4", "dropout=0.1"]
 no_half_vae = true
 noise_offset_type = "Original"
-optimizer_type = "adamw"
+optimizer_type = "Lion"
+optimizer_args = ["weight_decay=0.01", "betas=(0.9,0.99)"]
 output_dir = "/app/outputs"
 output_name = "last"
 pretrained_model_name_or_path = "stabilityai/stable-diffusion-xl-base-1.0"
@@ -44,14 +48,14 @@ prior_loss_weight = 1
 resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
-save_every_n_epochs = 3
+save_every_n_epochs = 5
 save_model_as = "safetensors"
 save_precision = "bf16"
 scale_weight_norms = 5
-text_encoder_lr = 0.0001
+text_encoder_lr = 0.00002
 train_batch_size = 4
 train_data_dir = ""
 training_comment = ""
-unet_lr = 0.0001
+unet_lr = 0.0002
 xformers = true
 shuffle_caption = true
